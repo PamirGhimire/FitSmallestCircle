@@ -1,6 +1,6 @@
 class Point2D:
-    PRINTPRECISION=1 #print till this decimal place
-    COMPARISONPRECISION=1 #compare till this decimal place
+    PRINTPRECISION=2 #print till this decimal place
+    COMPARISONPRECISION=2 #compare till this decimal place
     COMPARISONTOLERANCE=pow(10, -COMPARISONPRECISION)
 
     def __init__(self, x, y):
@@ -33,7 +33,7 @@ class Point2D:
 
 import random
 class RandomPoint2D(Point2D):
-    # initialize random number generator
+    # initialize random number generator to get same sequence of 'random' points each time 
     # random.seed(1)
 
     def __init__(self, xmin=-15.0, xmax=15.0, ymin=-15.0, ymax=15.0):

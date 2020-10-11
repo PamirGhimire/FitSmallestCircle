@@ -10,15 +10,15 @@ Sample output for stub data using external implementation: <br>
 
 
 Environment:
-It is assumed that python (version>=3.6.9) and pip (version>=20.2.3) are installed
-$ sudo apt install virtualenv
-$ virtualenv circleEnv -p python3
-$ source circleEnv/bin/activate
-$ pip install matplotlib==3.3.2
+It is assumed that python (version>=3.6.9) and pip (version>=20.2.3) are installed <br>
+$ sudo apt install virtualenv <br>
+$ virtualenv circleEnv -p python3 <br>
+$ source circleEnv/bin/activate <br>
+$ pip install matplotlib==3.3.2 <br>
 
 
-Usage:
-python --useStubData <true/false> --useExternalImpl <true/false> 
-if --useStubData true is specified, circle is fitted to points specified in 'TestData.csv', else, random points are generated as described above
+Usage: <br>
+$ python start.py --useStubData <true/false> --useExternalImpl <true/false> <br>
+if --useStubData true is specified, circle is fitted to points specified in 'TestData.csv', else, random points are generated as described above, and the smallest circle is fitted to the same <br>
 
 if --useExternalImpl true is specified, an algorithm from a freely available third party source is used for fitting the smallest circle, else, a naive almost-correct custom implementation is used

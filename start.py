@@ -17,7 +17,7 @@ def OpenSavedFigure(filename=DefaultFigureName):
 def CreateFigure(randomPoints, center, radius, filename=DefaultFigureName):
     #setup canvas
     figure, axes = plt.subplots()
-    scale = 1.2
+    scale = 1.3
     plt.xlim(-center.x-scale*radius, center.x+scale*radius)
     plt.ylim(-center.y-scale*radius, center.y+scale*radius)
     
@@ -39,8 +39,8 @@ def CreateFigure(randomPoints, center, radius, filename=DefaultFigureName):
 def main():
     randomPointsGenerator = Random2DPointsSetGenerator(stub=False)
     randomPoints = randomPointsGenerator.Generate()
-    radius, center = FitCircleTo2DPoints(randomPoints)
-    print("radius = ", radius, ", center = ", center)
+    radius, center = FitCircleTo2DPoints(randomPoints, useExternalImpl=True)
+    print("radius = ", round(radius, 2), ", center = ", center)
 
     CreateFigure(randomPoints, center, radius)
     OpenSavedFigure()

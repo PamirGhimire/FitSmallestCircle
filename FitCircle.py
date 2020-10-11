@@ -1,7 +1,8 @@
 import sys
 from Point2D import Point2D
+import FitCircleExternal
 
-def FitCircleTo2DPoints(listOf2DPoints=[]):
+def FitCircleTo2DPoints(listOf2DPoints=[], useExternalImpl=False):
     """
     returns radius and center (of type Point2D) of circle that encloses all input points
     r and c are such that the circle has the smallest possible radius for the pointset
@@ -11,6 +12,13 @@ def FitCircleTo2DPoints(listOf2DPoints=[]):
     if len(listOf2DPoints)==1 :
         return 0, listOf2DPoints[0]
     
+    if useExternalImpl:
+        allPoints = []
+        for point in listOf2DPoints:
+            allPoints.append([point.x, point.y])
+        centerAndRadius = FitCircleExternal.make_circle(allPoints)
+        return centerAndRadius[2], Point2D(centerAndRadius[0], centerAndRadius[1])
+
     floatmin = sys.float_info.min
     floatmax = sys.float_info.max
 

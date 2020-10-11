@@ -8,8 +8,8 @@ def OpenSavedFigure(filename=DefaultFigureName):
     if sys.platform == "win32":
         os.startfile(filename)
     else:
-        graphicsProgram = "open" if sys.platform == "darwin" else "xdg-open"
-        subprocess.call([graphicsProgram, filename])
+        linuxOsCommand = "open" if sys.platform == "darwin" else "xdg-open"
+        subprocess.call([linuxOsCommand, filename])
 
 def CreateFigure(randomPoints, center, radius, filename=DefaultFigureName):
     #setup canvas

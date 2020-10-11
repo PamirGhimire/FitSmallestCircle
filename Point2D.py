@@ -13,6 +13,9 @@ class Point2D(object):
     def __str__(self):
         return str(round(self.x, Point2D.PRINTPRECISION)) + ","+ str(round(self.y, Point2D.PRINTPRECISION))
 
+    def __repr__(self):
+        return self.__str__()
+
     def __eq__(self, other):
         areCLose = lambda f1, f2 : abs(f1-f2) < Point2D.COMPARISONTOLERANCE*max(abs(f1),abs(f2))
         return areCLose(self.x, other.x) and areCLose(self.y, other.y)

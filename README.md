@@ -5,6 +5,10 @@ By default, a random number of random points are generated with each call of the
 The output results are plotted on a 2D plane, with all points and the computed circle. Example points are available in 'TestData.csv' and can be used for testing the implementation through a command line option.
 
 
+Sample output for stub data using external implementation: <br>
+![Sample output for stub data using external implementation](sampleOutput.jpg)
+
+
 Environment:
 It is assumed that python (version>=3.6.9) and pip (version>=20.2.3) are installed
 $ sudo apt install virtualenv

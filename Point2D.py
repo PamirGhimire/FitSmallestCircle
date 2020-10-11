@@ -33,7 +33,7 @@ class Point2D:
 
 import random
 class RandomPoint2D(Point2D):
-    # initialize random number generator to get same sequence of 'random' points each time 
+    # uncomment following to initialize random number generator to get same sequence of 'random' points each time 
     # random.seed(1)
 
     def __init__(self, xmin=-15.0, xmax=15.0, ymin=-15.0, ymax=15.0):

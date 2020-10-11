@@ -5,7 +5,7 @@ import FitCircleExternal
 def FitCircleTo2DPoints(listOf2DPoints=[], useExternalImpl=False):
     """
     returns radius and center (of type Point2D) of circle that encloses all input points
-    r and c are such that the circle has the smallest possible radius for the pointset
+    r and c are such that the enclosing circle has the smallest radius for the pointset
     """
     if not len(listOf2DPoints)>0 :
         raise ValueError("Can not fit a circle to an empty list of points")

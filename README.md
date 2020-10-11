@@ -26,6 +26,6 @@ on Windows10, tested with matplotlib==2.2.5
 
 Usage: <br>
 $ python start.py --useStubData <true/false> --useExternalImpl <true/false> <br>
-if --useStubData true is specified, circle is fitted to points specified in 'TestData.csv', else, random points are generated as described above, and the smallest circle isfitted to the same <br>
+if --useStubData true is specified, circle is fitted to points specified in 'TestData.csv', else, random points are generated as described above, and the smallest circle is fitted to the same <br>
 
 if --useExternalImpl true is specified, an algorithm from a freely available third party source is used for fitting the smallest circle, else, a naive almost-correct custom implementation is used

@@ -1,4 +1,4 @@
-class Point2D:
+class Point2D(object):
     PRINTPRECISION=2 #print till this decimal place
     COMPARISONPRECISION=2 #compare till this decimal place
     COMPARISONTOLERANCE=pow(10, -COMPARISONPRECISION)

@@ -9,8 +9,8 @@ class Circle(object):
         center is a Point2D object that specifies center (x, y) of the circle
         """
         if (isinstance(center, Point2D) and Point2D.IsNumeric(radius) and radius >= 0):
-            self.center = center
             self.radius = radius
+            self.center = center
         else:
             raise ValueError("Center must be a Point2D and radius a float/int >= 0")
 
@@ -21,9 +21,9 @@ class Circle(object):
         if(not isinstance(point, Point2D)):
             raise ValueError("point must be of type Point2D")
         
-        euclideanDistSq = lambda p1, p2 : pow(pow(p1.x-p2.x, 2) + pow(p1.y-p2.y, 2), 0.5)
-        euclideanDistToCenterSq = euclideanDistSq(point, self.center)
-        if (pow(radius, 2)+Point2D.COMPARISONTOLERANCE > euclideanDistToCenterSq):
+        euclideanDist = lambda p1, p2 : pow(pow(p1.x-p2.x, 2) + pow(p1.y-p2.y, 2), 0.5)
+        euclideanDistToCenter = euclideanDist(point, self.center)
+        if (self.radius+Point2D.COMPARISONTOLERANCE > euclideanDistToCenter):
             return True
         return False
 

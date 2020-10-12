@@ -1,8 +1,8 @@
-import random, csv
+import random, json
 from Point2D import Point2D, RandomPoint2D
 
 class Random2DPointsSetGenerator:
-    STUBDATAFILEPATH="TestData.csv"
+    STUBDATAFILEPATH="TestData.json"
     def __init__(self, nPointsMin=25, nPointsMax=60, xmin=-15, xmax=15, ymin=-15, ymax=15, stub=False):
         kwargs = locals()
         self.stub = stub
@@ -26,16 +26,18 @@ class Random2DPointsSetGenerator:
     @staticmethod
     def GetStubDataFromFile(filepath):
         """
-        Expected format in csv file:
-        x1, y1
-        x2, y2
+        Expected format in json file:
+        [
+        {"x":x1, "y":y1},
         ...
+        {"x":xN, "y":yN}
+        ]
         """
-        if (filepath.split(".")[-1] != "csv"):
-            raise ValueError("Expected csv filetype")
+        if (filepath.split(".")[-1] != "json"):
+            raise ValueError("Expected json filetype")
         points = set() #filter duplicate points
-        with open(filepath) as csv_file:
-            csv_reader = csv.reader(csv_file, delimiter=',')
-            for row in csv_reader:
-                points.add( Point2D(float(row[0]), float(row[1])) )
+        with open(filepath) as json_file:
+            testPoints = json.load(json_file)
+            for point in testPoints:
+                points.add(Point2D(point["x"], point["y"]))
         return list(points)

@@ -1,9 +1,10 @@
 import sys
+from typing import List
 from Point2D import Point2D
 import FitCircleExternal
 
 class Circle(object):
-    def __init__(self, radius, center):
+    def __init__(self, radius:float, center:Point2D):
         """
         radius of the circle is a float or int >= 0
         center is a Point2D object that specifies center (x, y) of the circle
@@ -14,7 +15,7 @@ class Circle(object):
         else:
             raise ValueError("Center must be a Point2D and radius a float/int >= 0")
 
-    def ContainsPoint(self, point):
+    def ContainsPoint(self, point:Point2D)->bool:
         """
         returns true if point (of type Point2D) lies inside or on the boundary of the circle
         """
@@ -27,7 +28,7 @@ class Circle(object):
             return True
         return False
 
-def FitCircleTo2DPoints(listOf2DPoints=[], useExternalImpl=False):
+def FitCircleTo2DPoints(listOf2DPoints:List[Point2D]=[], useExternalImpl:bool=False):
     """
     returns radius and center (of type Point2D) of circle that encloses all input points
     r and c are such that the enclosing circle has the smallest radius for the pointset

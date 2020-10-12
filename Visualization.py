@@ -2,16 +2,19 @@ import os, sys
 import subprocess
 import matplotlib.pyplot as plt
 
+from typing import List
+from Point2D import Point2D
+
 DefaultFigureName = "FitCircle.png"
 
-def OpenSavedFigure(filename=DefaultFigureName):
+def OpenSavedFigure(filename:str=DefaultFigureName):
     if sys.platform == "win32":
         os.startfile(filename)
     else:
         linuxOsCommand = "open" if sys.platform == "darwin" else "xdg-open"
         subprocess.call([linuxOsCommand, filename])
 
-def CreateFigure(randomPoints, center, radius, filename=DefaultFigureName):
+def CreateFigure(randomPoints:List[Point2D], center:Point2D, radius:float, filename:str=DefaultFigureName):
     #setup canvas
     figure, axes = plt.subplots()
     scale = 1.3

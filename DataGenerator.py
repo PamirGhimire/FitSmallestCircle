@@ -1,9 +1,10 @@
 import random, json
 from Point2D import Point2D, RandomPoint2D
+from typing import List
 
 class Random2DPointsSetGenerator:
     STUBDATAFILEPATH="TestData.json"
-    def __init__(self, nPointsMin=25, nPointsMax=60, xmin=-15, xmax=15, ymin=-15, ymax=15, stub=False):
+    def __init__(self, nPointsMin:int=25, nPointsMax:int=60, xmin:float=-15, xmax:float=15, ymin:float=-15, ymax:float=15, stub:bool=False):
         kwargs = locals()
         self.stub = stub
         # check that all input args are numeric, and if so, set them as attributes
@@ -13,7 +14,7 @@ class Random2DPointsSetGenerator:
                     raise TypeError("All args must be numeric, " + argName + " is " + str(type(argVal)))
                 setattr(self, argName, argVal)
 
-    def Generate(self):
+    def Generate(self)->List[Point2D]:
         if (self.stub):
             return Random2DPointsSetGenerator.GetStubDataFromFile(Random2DPointsSetGenerator.STUBDATAFILEPATH)
 
@@ -24,7 +25,7 @@ class Random2DPointsSetGenerator:
         return list(points)
 
     @staticmethod
-    def GetStubDataFromFile(filepath):
+    def GetStubDataFromFile(filepath:str)->List[Point2D]:
         """
         Expected format in json file:
         [

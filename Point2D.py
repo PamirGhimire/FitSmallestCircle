@@ -3,7 +3,7 @@ class Point2D(object):
     COMPARISONPRECISION=2 #compare till this decimal place
     COMPARISONTOLERANCE=pow(10, -COMPARISONPRECISION)
 
-    def __init__(self, x, y):
+    def __init__(self, x:float, y:float):
         if(Point2D.IsNumeric(x) and Point2D.IsNumeric(y)):
             self.x = x
             self.y = y
@@ -11,7 +11,7 @@ class Point2D(object):
             raise TypeError("x and y must be numbers, got " + str(type(x)) + ", " + str(type(y)))
 
     def __str__(self):
-        return str(round(self.x, Point2D.PRINTPRECISION)) + ","+ str(round(self.y, Point2D.PRINTPRECISION))
+        return "(" + str(round(self.x, Point2D.PRINTPRECISION)) + ","+ str(round(self.y, Point2D.PRINTPRECISION)) + ")"
 
     def __repr__(self):
         return self.__str__()
@@ -29,7 +29,7 @@ class Point2D(object):
 
 
     @staticmethod
-    def IsNumeric(n):
+    def IsNumeric(n)->bool:
         if isinstance(n, int) or isinstance(n, float):
             return True
         return False
@@ -39,7 +39,7 @@ class RandomPoint2D(Point2D):
     # uncomment next line to initialize random number generator to get same sequence of 'random' points each time 
     # random.seed(1)
 
-    def __init__(self, xmin=-15.0, xmax=15.0, ymin=-15.0, ymax=15.0):
+    def __init__(self, xmin:float=-15.0, xmax:float=15.0, ymin:float=-15.0, ymax:float=15.0):
         numcheck = Point2D.IsNumeric
         if (not (numcheck(xmin) and numcheck(xmax) and numcheck(ymin) and numcheck(ymax))):
             raise TypeError("All arguments must be ints or floats")

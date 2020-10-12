@@ -24,11 +24,12 @@ A circle is a triple of floats (center x, center y, radius).
 '''
 
 import math, random
+from typing import List, Tuple
 
 EPSILON = 1e-12
 
 
-def make_circle(points):
+def make_circle(points:List[Tuple[float, float]]):
     '''
     Returns the smallest circle that encloses all the given points.
     Runs in expected O(n) time, randomized.

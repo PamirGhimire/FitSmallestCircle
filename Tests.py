@@ -84,10 +84,17 @@ class TestSuiteSmallestCircleFitting(unittest.TestCase):
 
             radiusExt, centerExt = FitCircleTo2DPoints(randomPoints, useExternalImpl=True)
             
-            #all random points must be inside the circle or on its perimeter, externalRadius <= customRadius
+            #all random points must be inside the circle or on its perimeter
             for point in randomPoints:
                 self.assertTrue(circle.ContainsPoint(point))
-                self.assertTrue(radiusExt <= radius)
+
+            #radius from custom impl. is often slightly larger than one from external impl., 
+            #but sometimes, they are nearly identical
+            if not radiusExt <= radius:
+                print("\nFor a random set of " + str(len(randomPoints)) + " points :")
+                print("radius, center from external impl. " + str(round(radiusExt, 4)) + ", " + str(centerExt))
+                print("radius, center from custom impl. " + str(round(radius, 4)) + ", " + str(center))
+            self.assertTrue(radiusExt < radius+Point2D.COMPARISONTOLERANCE)
 
 if __name__ == '__main__':
     unittest.main()

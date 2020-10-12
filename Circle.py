@@ -2,6 +2,31 @@ import sys
 from Point2D import Point2D
 import FitCircleExternal
 
+class Circle(object):
+    def __init__(self, radius, center):
+        """
+        radius of the circle is a float or int >= 0
+        center is a Point2D object that specifies center (x, y) of the circle
+        """
+        if (isinstance(center, Point2D) and Point2D.IsNumeric(radius) and radius >= 0):
+            self.center = center
+            self.radius = radius
+        else:
+            raise ValueError("Center must be a Point2D and radius a float/int >= 0")
+
+    def ContainsPoint(self, point):
+        """
+        returns true if point (of type Point2D) lies inside or on the boundary of the circle
+        """
+        if(not isinstance(point, Point2D)):
+            raise ValueError("point must be of type Point2D")
+        
+        euclideanDistSq = lambda p1, p2 : pow(pow(p1.x-p2.x, 2) + pow(p1.y-p2.y, 2), 0.5)
+        euclideanDistToCenterSq = euclideanDistSq(point, self.center)
+        if (pow(radius, 2)+Point2D.COMPARISONTOLERANCE > euclideanDistToCenterSq):
+            return True
+        return False
+
 def FitCircleTo2DPoints(listOf2DPoints=[], useExternalImpl=False):
     """
     returns radius and center (of type Point2D) of circle that encloses all input points

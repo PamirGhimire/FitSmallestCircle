@@ -2,7 +2,7 @@ import sys
 
 from CLIHelper import _parseArgs
 from DataGenerator import Random2DPointsSetGenerator
-from FitCircle import FitCircleTo2DPoints
+from Circle import FitCircleTo2DPoints
 from Visualization import CreateFigure, OpenSavedFigure
 
 

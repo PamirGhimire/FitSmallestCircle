@@ -6,7 +6,7 @@ from Point2D import Point2D
 MaxTestIter = 1000
 
 class TestSuiteSmallestCircleFitting(unittest.TestCase):
-    def test_PointInCircle(self):
+    def test_PointInCircleMethod(self):
         r = 7
         c = Point2D(3, 5)
         circle = Circle(radius=r, center=c)
@@ -30,18 +30,18 @@ class TestSuiteSmallestCircleFitting(unittest.TestCase):
             self.assertFalse(circle.ContainsPoint(Point2D(x, y)))
 
 
-    def test_Random2DPointGenerator(self):
+    def test_Random2DPointsGeneratedAsSpecified(self):
         generator = Random2DPointsSetGenerator(nPointsMin=25, nPointsMax=60, xmin=-15, xmax=15, ymin=-15, ymax=15, stub=False)        
         for testIter in range(MaxTestIter):
             randomPoints = generator.Generate()
-            # between 25 and 60 points are generated
+            # there are between 25 and 60 points are generated
             self.assertTrue(25 <= len(randomPoints) <= 60)
             # all points have -15 <= x/y <= +15
             for point in randomPoints:
                 self.assertTrue(-15 <= point.x <= 15)
                 self.assertTrue(-15 <= point.y <= 15)
 
-    def test_Random2DPointGeneratorStubData(self):
+    def test_GettingStubDataFromRandom2DPointsGenerator(self):
         generator = Random2DPointsSetGenerator(stub=True)        
         generatedPoints = generator.Generate()
 

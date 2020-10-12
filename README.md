@@ -10,19 +10,22 @@ Sample output for stub data using external implementation: <br>
 
 
 Environment:
-It is assumed that python (version>=3.6.9), pip (version>=20.2.3) and virtualenv (version>=15.1.0) are installed <br>
+It is assumed that python (version>=3.6.9) and pip (version>=20.2.3) <br>
 Linux: <br>
-$ virtualenv circleEnv -p python3 <br>
+$ python -m pip install virtualenv
+$ python -m virtualenv circleEnv -p python3 <br>
 $ source circleEnv/bin/activate <br>
 $ pip install matplotlib <br>
-on Linux, tested with matplotlib==3.3.2 
+*this implementation was tested on Linux with matplotlib==3.3.2 <br>
 
 Windows: <br>
 make sure that python3 is installed, check using $ python3 --version <br>
-$ virtualenv circleEnv -p python3 <br>
+pip should be installed by default with python3 on Windows (look for pip.exe at YourPythonInstallDir/Scripts/) <br>
+$ python -m pip install virtualenv
+$ python -m virtualenv circleEnv -p python3 <br>
 $ source circleEnv\Scripts\activate.bat <br>
 $ pip install matplotlib <br>
-on Windows10, tested with matplotlib==2.2.5
+*this implementation was tested on Windows with matplotlib==3.3.2 <br>
 
 Usage: <br>
 $ python start.py --useStubData <true/false> --useExternalImpl <true/false> <br>

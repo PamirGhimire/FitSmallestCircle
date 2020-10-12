@@ -23,7 +23,7 @@ class TestSuiteSmallestCircleFitting(unittest.TestCase):
 
         # points outside circle
         for testIter in range(int(MaxTestIter/2)):
-            rad = r + random.uniform(Point2D.COMPARISONPRECISION, 100)
+            rad = r + random.uniform(Point2D.COMPARISONTOLERANCE, 100)
             theta = random.uniform(0, 2*math.pi)
             x = c.x + rad*math.cos(theta)
             y = c.y + rad*math.sin(theta)
@@ -59,14 +59,21 @@ class TestSuiteSmallestCircleFitting(unittest.TestCase):
 
     def test_FitSmallestCircleExternalImpl(self):
         generator = Random2DPointsSetGenerator(nPointsMin=25, nPointsMax=60, xmin=-15, xmax=15, ymin=-15, ymax=15, stub=False)        
+        euclideanDist = lambda p1, p2 : pow(pow(p1.x-p2.x, 2) + pow(p1.y-p2.y, 2), 0.5)
+
         for testIter in range(MaxTestIter):
             randomPoints = generator.Generate()
             radius, center = FitCircleTo2DPoints(randomPoints, useExternalImpl=True)
             circle = Circle(radius, center)
             
+            nRandomPointsOnPerimeter = 0
             #all random points must be inside the circle or on its perimeter
             for point in randomPoints:
                 self.assertTrue(circle.ContainsPoint(point))
+                if abs(euclideanDist(point, center) - radius) <= Point2D.COMPARISONTOLERANCE:
+                    nRandomPointsOnPerimeter += 1
+            #at least 2 points must be on the perimeter of the circle
+            self.assertTrue(nRandomPointsOnPerimeter >= 2)
 
     def test_FitSmallestCircleCustomImpl(self):
         generator = Random2DPointsSetGenerator(nPointsMin=25, nPointsMax=60, xmin=-15, xmax=15, ymin=-15, ymax=15, stub=False)        

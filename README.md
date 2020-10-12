@@ -15,7 +15,7 @@ Linux: <br>
 $ python3 -m pip install virtualenv <br>
 $ python3 -m virtualenv circleEnv -p python3 <br>
 $ source circleEnv/bin/activate <br>
-$ pip install matplotlib <br>
+(circleEnv)$ pip install matplotlib <br>
 *this implementation was tested on Linux with matplotlib==3.3.2 <br>
 
 Windows: <br>
@@ -24,11 +24,14 @@ pip should be installed by default with python3 on Windows (look for pip.exe at 
 $ python3 -m pip install virtualenv <br>
 $ python3 -m virtualenv circleEnv -p python3 <br>
 $ source circleEnv\Scripts\activate.bat <br>
-$ pip install matplotlib <br>
+(circleEnv)$ pip install matplotlib <br>
 *this implementation was tested on Windows with matplotlib==3.3.2 <br>
 
 Usage: <br>
-$ python3 start.py --useStubData <true/false> --useExternalImpl <true/false> <br>
+(circleEnv)$ python3 start.py --useStubData <true/false> --useExternalImpl <true/false> <br>
 if --useStubData true is specified, circle is fitted to points specified in 'TestData.json', else, random points are generated as described above, and the smallest circle is fitted to the same <br>
 
-if --useExternalImpl true is specified, an algorithm from a freely available third party source is used for fitting the smallest circle, else, a naive almost-correct custom implementation is used
+if --useExternalImpl true is specified, an algorithm from a freely available third party source is used for fitting the smallest circle, else, a naive almost-correct custom implementation is used<br>
+
+Tests: <br>
+(circleEnv)$ python3 Tests.py -v <br>

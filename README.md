@@ -16,16 +16,16 @@ $ python3 -m pip install virtualenv <br>
 $ python3 -m virtualenv circleEnv -p python3 <br>
 $ source circleEnv/bin/activate <br>
 (circleEnv)$ pip install matplotlib <br>
-*this implementation was tested on Ubuntu18.04 with matplotlib==3.3.2 <br>
+*this implementation was tested on Ubuntu18.04 with python 3.6.9, matplotlib==3.3.2 <br>
 
 Windows: <br>
 make sure that python3 is installed, check using $ python3 --version <br>
 pip should be installed by default with python3 on Windows (look for pip.exe at YourPythonInstallDir/Scripts/) <br>
-$ python3 -m pip install virtualenv <br>
-$ python3 -m virtualenv circleEnv -p python3 <br>
-$ source circleEnv\Scripts\activate.bat <br>
-(circleEnv)$ pip install matplotlib <br>
-*this implementation was tested on Windows10 with matplotlib==3.3.2 <br>
+c:..\> python3 -m pip install virtualenv <br>
+c:..\> python3 -m virtualenv circleEnv -p python3 <br>
+c:..\> circleEnv\Scripts\activate.bat <br>
+(circleEnv)c:..\> pip install matplotlib <br>
+*this implementation was tested on Windows10 with python 3.8, 3.7.9 and matplotlib==3.3.2 <br>
 
 Usage: <br>
 (circleEnv)$ python3 start.py --useStubData <true/false> --useExternalImpl <true/false> <br>
